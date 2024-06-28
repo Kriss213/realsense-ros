@@ -83,8 +83,9 @@ class TestCamera_TestFPS(pytest_rs_utils.RsTestBaseClass):
             print("Starting camera test...")
             self.init_test("RsTest"+params['camera_name'])
             self.wait_for_node(params['camera_name'])
-            self.create_service_client_ifs(get_node_heirarchy(params))
-
+            self.create_param_ifs(get_node_heirarchy(params))
+            #assert self.set_bool_param('enable_color', False)
+            
             themes = [
             {'topic':get_node_heirarchy(params)+'/depth/image_rect_raw',
             'msg_type':msg_Image,
